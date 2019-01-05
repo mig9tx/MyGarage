@@ -15,7 +15,10 @@ the service was performed as well as get alerts of scheduled upcoming service.
 
 **Proposal Stage**
 
-# Screenshots
+# Screenshots / Prototype
+
+![Welcome](https://github.com/mig9tx/MyGarage/assets/images/prototype/prototype_01.png)
+
 
 # Tech Stack
 
