@@ -1,6 +1,6 @@
 # MyGarage
 
-Mobile application that allows user to keep their maintenance records and owned vehicle specs in their pocket.  They get alerts when 
+Mobile application that allows user to keep their owned vehicle specs and maintenance records in their pocket.  They get alerts when 
 maintenace is required, reminded when service is due, find a mechanic or service center nearby, view charts and graphs showing their maintenance and cost over time, and print out a detailed maintenance history when they sell their vehicle.
 
 # Motivation
