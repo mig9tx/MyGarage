@@ -1,12 +1,13 @@
 # MyGarage
 
 Mobile application that allows user to keep their owned vehicle specs and maintenance records in their pocket.  They get alerts when 
-maintenace is required, reminded when service is due, find a mechanic or service center nearby, view charts and graphs showing their maintenance and cost over time, and print out a detailed maintenance history when they sell their vehicle.
+maintenace is required, reminded when service is due, find a mechanic or service center nearby, view charts and tables showing their maintenance and cost over time, and print out a detailed maintenance history when they sell their vehicle.
 
 # Motivation
 
 As a vehicle owner of mulitple manufacturer vehicles, it is difficult to keep the records of all of your cars in one place.  It is easy to misplace oil change forms or maintenance sheets.  It's great to keep all of the records in one place where one can reference the cost, service performed as well as get alerts of scheduled upcoming service.
 
+Often you get recall notices in the mail and set them aside as junk.  With this application you can get an alert from our app that will notify you of any recalls as soon as the manufacturer posts them in their system.
 
 # Build Status
 
