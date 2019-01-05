@@ -34,6 +34,8 @@ Often you get recall notices in the mail and set them aside as junk.  With this 
 <img src="/assets/images/prototype/prototype_11.png" width="250">
 <img src="/assets/images/prototype/prototype_12.png" width="250">
   </div>
+  
+<img src="/assets/images/prototype/dbdiagram.png">
 
 
 # Tech Stack
