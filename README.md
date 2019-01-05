@@ -10,7 +10,7 @@ As a vehicle owner of mulitple manufacturer vehicles, it is difficult to keep th
 
 # Build Status
 
-**Proposal Stage**
+**Proposal/Prototype Stage**
 
 # Screenshots / Prototype
 <div class="row">
