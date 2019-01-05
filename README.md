@@ -1,14 +1,11 @@
 # MyGarage
 
-Tired of forgetting to schedule your vehicle maintenance? Do you own more than one vehicle and wish all of you maintenance records, cost
-and alerts were all in one place? Then look no further than MyGarage.  We invest so much into our vehicles and proper maintenance and care 
-will allow us to have them running longer as well as retain value and get more when we go to sell them.
+Mobile application that allows user to keep their maintenance records and owned vehicle specs in their pocket.  They get alerts when 
+maintenace is required, reminded when service is due, find a mechanic or service center nearby, view charts and graphs showing their maintenance and cost over time, and print out a detailed maintenance history when they sell their vehicle.
 
 # Motivation
 
-As a vehicle owner of mulitple manufacturer vehicles, it is difficult to keep the records of all of your cars in one place.  I constantly
-misplace oil change forms or maintenance sheets.  It's great to keep all of the records in one place where we can reference the cost, when 
-the service was performed as well as get alerts of scheduled upcoming service.
+As a vehicle owner of mulitple manufacturer vehicles, it is difficult to keep the records of all of your cars in one place.  It is easy to misplace oil change forms or maintenance sheets.  It's great to keep all of the records in one place where one can reference the cost, service performed as well as get alerts of scheduled upcoming service.
 
 
 # Build Status
@@ -16,8 +13,26 @@ the service was performed as well as get alerts of scheduled upcoming service.
 **Proposal Stage**
 
 # Screenshots / Prototype
-
-![Welcome](https://github.com/mig9tx/MyGarage/assets/images/prototype/prototype_01.png)
+<div class="row">
+<img src="/assets/images/prototype/prototype_01.png" width="250">
+<img src="/assets/images/prototype/prototype_02.png" width="250">
+<img src="/assets/images/prototype/prototype_03.png" width="250">
+  </div>
+  <div class="row">
+<img src="/assets/images/prototype/prototype_04.png" width="250">
+<img src="/assets/images/prototype/prototype_05.png" width="250">
+<img src="/assets/images/prototype/prototype_06.png" width="250">
+  </div>
+  <div class="row">
+<img src="/assets/images/prototype/prototype_07.png" width="250">
+<img src="/assets/images/prototype/prototype_08.png" width="250">
+<img src="/assets/images/prototype/prototype_09.png" width="250">
+  </div>
+  <div class="row">
+<img src="/assets/images/prototype/prototype_10.png" width="250">
+<img src="/assets/images/prototype/prototype_11.png" width="250">
+<img src="/assets/images/prototype/prototype_12.png" width="250">
+  </div>
 
 
 # Tech Stack
