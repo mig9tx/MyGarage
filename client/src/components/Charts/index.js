@@ -76,3 +76,54 @@ export const centerTextPlugin = {
         }
     }
 };
+
+export class LineShadow extends React.Component {
+    componentWillMount() {
+        Chart.defaults.polarWithShadow = Chart.defaults.polarArea;
+        Chart.controllers.polarWithShadow = chart.controllers.polarArea.extend({
+            draw: function(ease) {
+                Chart.controllers.radar.prototype.draw.call(this, ease);
+                let ctx = this.chart.chart.ctx;
+                ctx.save();
+                ctx.shadowColor = "rgba(0,0,0,0.2)";
+                ctx.shadowBlur = 7;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 7;
+                ctx.responsive = true;
+                Chart.conrollers.radar.prototype.draw.apply(this, arguments);
+                ctx.restore();
+            }
+        });
+    }
+
+    render() {
+        return (
+            <ChartComponent
+            ref={ref => (this.chart_instance = ref && ref.chart_instance)}
+            type="polarWithShadow"
+            {...this.props}
+            />
+        );
+    }
+}
+
+export class LineShadow extends React.Component {
+    componentWillMount() {
+        Chart.defaults.LineShadow = Chart.defaults.line;
+        Chart.controllers.lineWithShadow = Chart.controllers.line.extend({
+            draw: function(ease) {
+                Chart.controllers.line.prototype.draw.call(this, ease);
+                let ctx = this.chart.chart.ctx;
+                ctx.save();
+                ctx.shadowColor = "rgba(0,0,0,0.15)";
+                ctx.shadowBlur = 10;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 10;
+                ctx.responsive = true;
+                ctx.stroke();
+                Chart.conrollers.line.prototype.draw.apply(this, arguments);
+                ctx.restore();
+            }
+        });
+    }
+}
