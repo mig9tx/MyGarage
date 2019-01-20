@@ -126,4 +126,256 @@ export class LineShadow extends React.Component {
             }
         });
     }
+
+    // Render
+    render() {
+        return (
+            <ChartComponent
+            ref={ref => (this.chart_instance = ref && ref.chart_instance)}
+            type="lineWithShadow"
+            {...this.props}
+            />
+        );
+    }
+}
+
+export class ScatterShadow extends React.Component {
+    componentWillMount() {
+        Chart.defaults.scatterWithShadow = Chart.defaults.scatter;
+        Chart.controllers.scatterWithShadow = Chart.controllers.scatter.extend({
+            draw: function(ease) {
+                Chart.controllers.scatter.prototype.draw.call(this, ease);
+                let ctx = this.chart.chart.ctx;
+                ctx.save();
+                ctx.shadowColor = "rgba(0,0,0,0.2)";
+                ctx.shadowBlur = 7;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 7;
+                ctx.responsive = true;
+                Chart.controllers.scatter.prototype.draw.apply(this, arguments);
+                ctx.restore();
+            }
+        });
+    }
+
+    render() {
+        return (
+            <ChartComponent
+            ref={ref => (this.chart_instance = ref && ref.chart_instance)}
+            type="scatterWithShadow"
+            {...this.props}
+            />
+        );
+    }
+}
+
+export class RadarShadow extends React.Component {
+    componentWillMount() {
+        Chart.defaults.radarWithShadow = Chart.defaults.radar;
+        Chart.controllers.radarWithShadow = Chart.controllers.radar.extend({
+            draw: function(ease) {
+                Chart.controllers.radar.prototype.draw.call(this, ease);
+                let ctx = this.chart.chart.ctx;
+                ctx.save();
+                ctx.shadowColor = "rgba(0,0,0,0.2)";
+                ctx.shadowBlur = 7;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 7;
+                ctx.responsive = true;
+                Chart.controllers.radar.prototype.draw.apply(this, arguments);
+                ctx.restore();
+            }
+        });
+    }
+
+    render() {
+        return (
+            <ChartComponent
+            ref={ref => (this.chart_instance = ref && ref.chart_instance)}
+            type="radarWithShadow"
+            {...this.props}
+            />
+        );
+    }
+}
+
+export class PieShadow extends React.Component {
+    componentWillMount() {
+        Chart.defaults.pieWithShadow = Chart.defaults.pie;
+        Chart.controllers.pieWithShadow = Chart.controllers.pie.extend({
+            draw: function(ease) {
+                Chart.controllers.pie.prototype.draw.call(this, ease);
+                let ctx = this.chart.chart.ctx;
+                ctx.save();
+                ctx.shadowColor = "rgba(0,0,0,0.15)";
+                ctx.shadowBlur = 10;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 10;
+                ctx.responsive = true;
+                Chart.controllers.pie.prototype.draw.apply(this, arguments);
+                ctx.restore();
+            }
+        });
+    }
+
+    render () {
+        return (
+            <ChartComponent
+            ref={ref => (this.chart_instance = ref && ref.chart_instance)}
+            type="pieWithShadow"
+            {...this.props}
+            />
+        );
+    }
+}
+
+export class DoughnutShadow extends React.Component {
+    componentWillMount() {
+        Chart.defaults.DoughnutShadow = Chart.defaults.doughnut;
+        Chart.controllers.doughnutWithShadow = Chart.controllers.doughtnut.extend({
+            draw: function(ease) {
+                Chart.controllers.doughnut.prototype.draw.call(this, ease);
+                let ctx = this.chart.chart.ctx;
+                ctx.save();
+                ctx.shadowColor = "rgba(0,0,0,0.15)";
+                ctx.shadowBlur = 10;
+                ctx.shadowOffsetX = 0;
+                ctx.shadowOffsetY = 10;
+                ctx.responsive = true;
+                Chart.controllers.doughnut.prototype.draw.apply(this, arguments);
+                ctx.restore();
+            }
+        });
+    }
+    
+    render() {
+        return (
+            <ChartComponent
+            ref={ref => (this.chart_instance = ref && ref.chart_instance)}
+            type="doughnutWithShadow"
+            {...this.props}
+            />
+        );
+    }
+
+    render() {
+        return (
+            <ChartComponent
+            ref={ref => (this.chart_instance = ref && ref.chart_instance)}
+            type="doughnutWithShadow"
+            {...this.props}
+            />
+        );
+    }
+}
+
+export class SmallLineChart extends React.Component {
+    constructor(props) {
+        super(props);
+        this.changeState = this.changeState.bind(this);
+        this.state = {
+            currentValue: "",
+            currentLabel: ""
+        };
+    }
+
+    componentWillMount() {
+        Chart.defaults.lineWithLine = Chart.defaults.line;
+        Chart.controllers.lineWithLine = Chart.controllers.line.extend({
+            draw: function(ease) {
+                Chart.controllers.line.prototype.draw.call(this, ease);
+        
+                if (this.chart.tooltip._active && this.chart.tooltip._active.length) {
+                    var activePoint = this.chart.tooltip._active[0];
+                    var ctx = this.chart.ctx;
+                    var x = activePoint.tooltipPosition().x;
+                    var topY = this.chart.scales["y-axis-0"].top;
+                    var bottomY = this.chart.scales["y-axis-0"].bottom;
+        
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(x, topY);
+                    ctx.lineTo(x, bottomY);
+                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = "rgba(0,0,0,0.1)";
+                    ctx.stroke();
+                    ctx.restore();
+                }
+            }
+        });
+    }
+// ChangeState 
+    changeState(yLabel, xLabel) {
+        this.setState({ currentValue: yLabel, currentLabel: xLabel });
+    } 
+// Render
+    render() {
+        let changeState = this.changeState;
+        return (
+            <Fragment>
+                <div>
+                    <p className="lead color-theme-1 mb-1 value"></p>
+                </div>
+                <div className="chart">
+                    <ChartComponent
+                    ref={ref => (this.chart_instance = ref && ref.chart_instance)}
+                    type="lineWithLine"
+                    options={{
+                        layout: {
+                            padding: {
+                                left: 5,
+                                right: 5, 
+                                top: 10,
+                                bottom: 10
+                            }
+                        }, 
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        legen: {
+                            display: false
+                        },
+                        scales: {
+                            yAxes: [
+                                {
+                                    ticks: {
+                                        beginAtZero: true
+                                    },
+                                    dissplay: false
+                                }
+                            ],
+                            xAxes: [
+                                {
+                                    display: false
+                                }
+                            ]
+                        },
+                        tooltips: {
+                            intersect: false,
+                            enabled: false,
+                            custom: function(tooltipModel) {
+                                if (tooltripModel && tooltipModel.dataPoints) {
+                                    var yLabel = tooltipModel.dataPoints[0].yLabel;
+                                    var xLabel = tooltipModel.dataPoints[0].xLabel;
+                                    var label = tooltipModel.body[0].lines[0].split(":")[0];
+                                    changeState("$" + addCommas(yLabel), label + "-" + xLabel);
+                                }
+                            }
+                        }
+                    }}
+                    plugins={[
+                        {
+                          afterInit: function(chart, options) {
+                            var yLabel = chart.data.datasets[0].data[0];
+                            var xLabel = chart.data.labels[0];
+                            var label = chart.data.datasets[0].label;
+                            changeState("$" + addCommas(yLabel), label + "-" + xLabel);
+                          }
+                        }
+                      ]}
+                      {...this.props}
+                />
+                </div>
+            </Fragment>
+        );
+    }
 }
