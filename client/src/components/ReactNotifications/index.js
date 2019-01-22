@@ -1,6 +1,6 @@
 import Notifications from "./Notifications.js";
-import NotificatioContainer from "./NotificationContainer";
-import NotificationManager from "./NotificationManager";
+import NotificationContainer from "./NotificationContainer";
+import NotificationManager from "./NotificationManager.js";
 
-export { Notifications, NotificatinoContainer, NotificationManager };
+export { Notifications, NotificationContainer, NotificationManager };
 export default Notifications;

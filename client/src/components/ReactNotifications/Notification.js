@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classNames";
+import classNames from "classnames";
 
 class Notification extends React.Component {
     static propTypes = {
-        type: propTypes.oneOf(["info", "success", "warning", "error", "primary", "secondary"]),
+        type: PropTypes.oneOf(["info", "success", "warning", "error", "primary", "secondary"]),
         title: PropTypes.node,
         message: PropTypes.node.isRequired,
         timeOut: PropTypes.number,
@@ -28,7 +28,7 @@ class Notification extends React.Component {
     componenetDidMount = () => {
         const { timeOut } = this.props;
         if (timeOut !== 0) {
-            this.timer = setTimout(this.requestHide, timeOut);
+            this.timer = setTimeout(this.requestHide, timeOut);
         }
     };
 
@@ -56,7 +56,7 @@ class Notification extends React.Component {
     render() {
         const { type, message } = this.props;
         let { title } = this.props;
-        const className = classnames(["notification", `notification-${type}`, this.props.customClassName]);
+        const className = classNames(["notification", `notification-${type}`, this.props.customClassName]);
         title = title ? (<h4 className="title">{title}</h4>) : null;
         return (
             <div className={className} onClick={this.handleClick}>

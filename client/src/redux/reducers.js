@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import settins from "./settings/reducer";
-import menu from "./menu/reducer";
+import settings from "./settings/reducer";
+import menu from "./menu/reducers";
 
-const reducers = combinReducers({
+const reducers = combineReducers({
     menu,
     settings
 });

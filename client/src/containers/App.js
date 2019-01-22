@@ -2,51 +2,58 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Redirect, Route,Switch } from "react-router-dom";
 import { IntlProvider } from "react-intl";
-import { NotificationContainer } from "Components/ReactNotifications";
-import { defaultStartPath } from "Constants/defaultValues";
+import { NotificationContainer } from "../components/ReactNotifications";
+import { defaultStartPath } from "../constants/defaultValues";
 
-import AppLocale from "../lang";
-import MainRoute from "Routes";
-import error from "Routes/error";
+// import AppLocale from "../lang";
+import MainRoute from "../routes/index.js";
+import error from "../routes/error/index.js";
 
-import "Assets/css/vendor/bootstrap.min.css";
+import "../assets/css/vendor/bootstrap.min.css";
 import "react-perfect-scrollbar/dist/css/styles.css";
-import "Assets/css/sass/themes/gogo.light.purple.scss";
+import "../assets/css/sass/_garage.style.scss";
+/*
+color options : 
+	 'light.purple'		'dark.purple'
+	 'light.blue'		'dark.blue'
+	 'light.green'		'dark.green'
+	 'light.orange'		'dark.orange'
+	 'light.red'		'dark.red'
+*/
 
 class App extends Component {
-    render() {
-        const { location, match, locale } = this.props;
-        const currentAppLocale = AppLocale[locale];
-        if (location.pathname === '/' || location.pathname==='/app'|| location.pathname==='/app/') {
-            return (<Redirect to={defaultStartPath} />);
-        }
-
-        return (
-            <Fragment>
-                <NotificationContainer />
-                <IntlProvider
-                locale={currentAppLocale.locale}
-                messages={currentAppLocale.messages}
-                >
-                <Fragment>
-                    <Switch>
-                        <Route path={`${match.url}app`} component={MainRoute} />
-                        <Route path={`/error`} component={MainRoute} />
-                        <Redirect to="/error" />
-                    </Switch>
-                </Fragment>
-                </IntlProvider>
-            </Fragment>
-        );
-    }
+  render() {
+    const { location, match, locale } = this.props;
+    // const currentAppLocale = AppLocale[locale];
+	if (location.pathname === '/'  || location.pathname==='/app'|| location.pathname==='/app/') {
+		return (<Redirect to={defaultStartPath} />);
+	}
+    return (
+      <Fragment>
+        <NotificationContainer />
+        <IntlProvider
+        //   locale={currentAppLocale.locale}
+        //   messages={currentAppLocale.messages}
+        >
+          <Fragment>
+            <Switch>
+              <Route path={`${match.url}app`} component={MainRoute} />
+              <Route path={`/error`} component={error} />
+              <Redirect to="/error" />
+            </Switch>
+          </Fragment>
+        </IntlProvider>
+      </Fragment>
+    );
+  }
 }
 
 const mapStateToProps = ({ settings }) => {
-    const { locale } = settings;
-    return { locale };
+  const { locale } = settings;
+  return { locale };
 };
 
 export default connect(
-    mapStateToProps,
-    {}
+  mapStateToProps,
+  {}
 )(App);

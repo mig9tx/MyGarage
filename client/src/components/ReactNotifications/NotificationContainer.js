@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import NotificationManager from "./NotificationManager";
-import Notifications from "./Notifications";
+import React from 'react';
+import PropTypes from 'prop-types';
+import NotificationManager from './NotificationManager.js';
+import Notifications from './Notifications.js';
 
 class NotificationContainer extends React.Component{
     static propTypes = {
@@ -22,7 +22,7 @@ class NotificationContainer extends React.Component{
         NotificationManager.addChangeListener(this.handleStoreChange);
     };
 
-    componenntWillUnmount = () => {
+    componentWillUnmount = () => {
         NotificationManager.removeChangeListener(this.handleStoreChange);
     };
 
