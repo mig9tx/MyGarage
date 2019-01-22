@@ -21,6 +21,31 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
+    <style>
+    .loading {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border: 2px solid rgba(100,100,100,.2);
+      border-radius: 50%;
+      border-top-color: rgba(100,100,100,.7);
+      animation: spin 1s ease-in-out infinite;
+      -webkit-animation: spin 1s ease-in-out infinite;
+      left: calc(50% - 15px);
+      top: calc(50% - 15px);
+      position: fixed;
+      z-index: 1;
+    }
+
+    @keyframes spin {
+      to { -webkit-transform: rotate(360deg); }
+    }
+    @-webkit-keyframes spin {
+      to { -webkit-transform: rotate(360deg); }
+    }
+
+    </style>
     <title>My Garage</title>
   </head>
   <body>

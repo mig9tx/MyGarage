@@ -9,9 +9,9 @@ import AppLocale from "../lang";
 import MainRoute from "Routes";
 import error from "Routes/error";
 
-// import "Assets/css/vendor/bootstrap.min.css";
-// import "react-perfect-scrollbar/dist/css/styles.css";
-// import "Assets/css/sass/themes/gogo.light.purple.scss";
+import "Assets/css/vendor/bootstrap.min.css";
+import "react-perfect-scrollbar/dist/css/styles.css";
+import "Assets/css/sass/themes/gogo.light.purple.scss";
 
 class App extends Component {
     render() {
