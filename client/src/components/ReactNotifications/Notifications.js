@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransitionGroup } from 'react-transition-group';
 import classnames from 'classnames';
-import Notification from './Notification';
+import Notification from './Notification.js';
 
 class Notifications extends React.Component {
     static PropTypes = {
