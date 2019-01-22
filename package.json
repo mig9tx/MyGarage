@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "my-garage-application",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "My Garage Application",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && yarn start:prod || yarn start:dev",
@@ -27,6 +27,10 @@
     "react-perfect-scrollbar": "^1.4.4",
     "react-router-dom": "^4.3.1",
     "reactstrap": "^7.1.0",
-    "redux-saga": "^1.0.0"
+    "redux-saga": "^1.0.0",
+    "webpack": "^4.29.0",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
   }
 }
