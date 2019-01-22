@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import NotificationManager from "./NotificationManager";
-import Notifications from "./Notifications";
+import NotificationManager from "./NotificationManager.js";
+import Notifications from "./Notifications.js";
 
-class NotificationContainer extends React.Component{
+export default class NotificationContainer extends React.Component{
     static propTypes = {
         enterTimeout: PropTypes.number,
         leaveTimeout: PropTypes.number
@@ -22,7 +22,7 @@ class NotificationContainer extends React.Component{
         NotificationManager.addChangeListener(this.handleStoreChange);
     };
 
-    componenntWillUnmount = () => {
+    componentWillUnmount = () => {
         NotificationManager.removeChangeListener(this.handleStoreChange);
     };
 
@@ -50,4 +50,3 @@ class NotificationContainer extends React.Component{
     }
 }
 
-export default NotificationContainer;
