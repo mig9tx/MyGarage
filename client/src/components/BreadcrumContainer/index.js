@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
-import IntlMessages from "Util/IntlMessages";
+import IntlMessages from "../../util/IntlMessages";
 
 const getMenuTitle = sub => {
-    return <IntMessages id={`Menu.${sub}`} />;
+    return <IntlMessages id={`Menu.${sub}`} />;
 };
 
 const getUrl = (path, sub, index) => {

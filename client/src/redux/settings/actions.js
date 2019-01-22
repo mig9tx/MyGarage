@@ -1,9 +1,10 @@
 import {
     CHANGE_LOCALE
-} from "Constants/actionTypes";
+} from '../../constants/actionTypes';
 
-export const changeLocale = (locale) = {
-    localStorage.setItem("currentLanaguage", locale);
+
+export const changeLocale = (locale) => {
+    localStorage.setItem('currentLanguage', locale);
     return (
         {
             type: CHANGE_LOCALE,
@@ -11,3 +12,4 @@ export const changeLocale = (locale) = {
         }
     )
 }
+

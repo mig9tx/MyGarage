@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route, withRouter, Switch, Redirect } from "react-router-dom";
 
-import TopNav from "Containers/TopNav";
-import Sidebar from "Containers/Sidebar";
+import TopNav from "../containers/Sidebar";
+import Sidebar from "../containers/Sidebar";
 
 import garage from "./garage";
 import secondMenu from "./second-menu";
@@ -19,7 +19,7 @@ class MainApp extends Component {
         const { match, containerClassnames } = this.props;
         return (
             <div id="app-container" className={containerClassnames}>
-              <TopNam history={this.props.history} />
+              <TopNav history={this.props.history} />
               <Sidebar />
               <main>
                 <div className="container-fluid">
@@ -36,7 +36,7 @@ class MainApp extends Component {
     }
 }
 const mapStateToProps = ({ menu }) => {
-    const { contanerClassnames } = menu;
+    const { containerClassnames } = menu;
     return { containerClassnames };
 };
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import IntlMessages from "Util/IntlMessages";
+import IntlMessages from "../../util/IntlMessages";
 import { Nav, NavItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import classnames from "classnames";
@@ -12,7 +12,7 @@ import {
   setContainerClassnames,
   addContainerClassname,
   changeDefaultClassnames
-} from "Redux/actions";
+} from "../../redux/actions";
 
 
 class Sidebar extends Component {
@@ -87,7 +87,7 @@ class Sidebar extends Component {
         if (windowWidth < menuHiddenBreakPoint) {
             nextClasses.push("menu-mobile");
         } else if (windowWidth < subHiddenBreakpoint) {
-            nextClasses = nextClases.filter(x => x != "menu-mobile");
+            nextClasses = nextClasses.filter(x => x != "menu-mobile");
             if (
                 nextClasses.includes("menu-default") &&
                 !nextClasses.includes("menu-sub-hidden")
@@ -355,5 +355,5 @@ export default withRouter(
     connect(
         mapStateToProps,
         { setContainerClassnames, addContainerClassname, changeDefaultClassnames }
-    )(sidebar)
+    )(Sidebar)
 );
