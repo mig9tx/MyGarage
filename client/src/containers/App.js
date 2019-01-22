@@ -5,21 +5,15 @@ import { IntlProvider } from "react-intl";
 import { NotificationContainer } from "../components/ReactNotifications/NotificationContainer.js";
 import { defaultStartPath } from "../constants/defaultValues.js";
 
+
 import AppLocale from "../lang";
 import MainRoute from "Routes";
 import error from "Routes/error";
 
-import "Assets/css/vendor/bootstrap.min.css";
-import "react-perfect-scrollbar/dist/css/styles.css";
-import "Assets/css/sass/themes/garage.light.purple.scss";
-/*
-color options : 
-	 'light.purple'		'dark.purple'
-	 'light.blue'		'dark.blue'
-	 'light.green'		'dark.green'
-	 'light.orange'		'dark.orange'
-	 'light.red'		'dark.red'
-*/
+
+// import "Assets/css/vendor/bootstrap.min.css";
+// import "react-perfect-scrollbar/dist/css/styles.css";
+// import "Assets/css/sass/themes/gogo.light.purple.scss";
 
 class App extends Component {
     render() {
@@ -44,6 +38,7 @@ class App extends Component {
                   </Fragment>
                 </IntlProvider>
               </Fragment>
+
         );
     }
 }
@@ -57,3 +52,4 @@ export default connect(
     mapStateToProps,
     {}
 )(App);
+
