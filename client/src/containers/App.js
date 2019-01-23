@@ -7,7 +7,7 @@ import { defaultStartPath } from "../constants/defaultValues";
 
 // import AppLocale from "../lang";
 import MainRoute from "../routes/index.js";
-import error from "../routes/error/index.js";
+import error from "../routes/error";
 
 import "../assets/css/vendor/bootstrap.min.css";
 import "react-perfect-scrollbar/dist/css/styles.css";
