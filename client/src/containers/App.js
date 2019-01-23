@@ -2,16 +2,16 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Redirect, Route,Switch } from "react-router-dom";
 import { IntlProvider } from "react-intl";
-import { NotificationContainer } from "../components/ReactNotifications";
-import { defaultStartPath } from "../constants/defaultValues";
+import { NotificationContainer } from "Components/ReactNotifications";
+import { defaultStartPath } from "Constants/defaultValues";
 
-// import AppLocale from "../lang";
-import MainRoute from "../routes/index.js";
-import error from "../routes/error";
+import AppLocale from "../lang";
+import MainRoute from "Routes";
+import error from "Routes/error";
 
-import "../assets/css/vendor/bootstrap.min.css";
+import "Assets/css/vendor/bootstrap.min.css";
 import "react-perfect-scrollbar/dist/css/styles.css";
-import "../assets/css/sass/_garage.style.scss";
+import "Assets/css/sass/themes/gogo.light.purple.scss";
 /*
 color options : 
 	 'light.purple'		'dark.purple'
@@ -24,7 +24,7 @@ color options :
 class App extends Component {
   render() {
     const { location, match, locale } = this.props;
-    // const currentAppLocale = AppLocale[locale];
+    const currentAppLocale = AppLocale[locale];
 	if (location.pathname === '/'  || location.pathname==='/app'|| location.pathname==='/app/') {
 		return (<Redirect to={defaultStartPath} />);
 	}
@@ -32,8 +32,8 @@ class App extends Component {
       <Fragment>
         <NotificationContainer />
         <IntlProvider
-        //   locale={currentAppLocale.locale}
-        //   messages={currentAppLocale.messages}
+          locale={currentAppLocale.locale}
+          messages={currentAppLocale.messages}
         >
           <Fragment>
             <Switch>

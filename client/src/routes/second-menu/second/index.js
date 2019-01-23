@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
-import IntlMessages from "../../../util/IntlMessages";
+import IntlMessages from "Util/IntlMessages";
 import { Row, Card, CardBody, CardTitle, Button, Jumbotron } from "reactstrap";
 
-import { Colxx, Separator } from "../../../components/CustomBootstrap";
-import BreadcrumbContainer from "../../../components/BreadcrumContainer";
+import { Colxx, Separator } from "Components/CustomBootstrap";
+import BreadcrumbContainer from "Components/BreadcrumbContainer";
 
 export default class extends Component {
   render() {
