@@ -14,7 +14,7 @@ class Navbar extends Component {
               }}
               className="col s5 brand-logo center black-text"
             >
-              <i className="large material-icons">drive_eta</i>
+              <i className="material-icons">directions_car</i>
               MY GARAGE
             </Link>
           </div>
