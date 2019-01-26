@@ -63,6 +63,7 @@ class Dashboard extends Component {
       image: book.volumeInfo.imageLinks.thumbnail
     }).then(() => this.getBooks());
   };
+  
 
   render() {
     const { user } = this.props.auth;
