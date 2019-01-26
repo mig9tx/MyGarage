@@ -2,11 +2,66 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import API from "../../utils/API";
+import { Col, Row, Container } from "../Grid/";
+import Card from "../Card";
+import Form from "../Form";
+import { List } from "../List";
+import Book from "../Book";
+
+
 
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
+  };
+
+  state = {
+    books: [],
+    q: "",
+    message: "Search for a book to begin!"
+  };
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  getBooks = () => {
+    API.getBooks(this.state.q)
+    .then(res =>
+      this.setState({
+        books: res.data
+      })
+    )
+    .catch(() =>
+    this.setState({
+      books: [],
+      message: "No new books found, try a different Query"
+    })
+    );
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.getBooks();
+  };
+
+  handleBookSave = id => {
+    const book = this.state.books.find(book => book.id === id);
+
+    API.saveBook({
+      googleId: book.id,
+      title: book.volumeInfo.title,
+      subtitle: book.volumeInfo.subtitle,
+      link: book.volumeInfo.infoLink,
+      authors: book.volumeInfo.authors,
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.thumbnail
+    }).then(() => this.getBooks());
   };
 
   render() {
@@ -37,7 +92,51 @@ class Dashboard extends Component {
             </button>
           </div>
         </div>
-      </div>
+        <Container>
+        <Row>
+          <Col size="md-12">
+            <Card title="Car Search" icon="far fa-book">
+              <Form
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
+                q={this.state.q}
+              />
+            </Card>
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-12">
+            <Card title="Results">
+              {this.state.books.length ? (
+                <List>
+                  {this.state.books.map(book => (
+                    <Book
+                      key={book.id}
+                      title={book.volumeInfo.title}
+                      subtitle={book.volumeInfo.subtitle}
+                      link={book.volumeInfo.infoLink}
+                      authors={book.volumeInfo.authors.join(", ")}
+                      description={book.volumeInfo.description}
+                      image={book.volumeInfo.imageLinks.thumbnail}
+                      Button={() => (
+                        <button
+                          onClick={() => this.handleBookSave(book.id)}
+                          className="btn btn-primary ml-2"
+                        >
+                          Save
+                        </button>
+                      )}
+                    />
+                  ))}
+                </List>
+              ) : (
+                <h2 className="text-center">{this.state.message}</h2>
+              )}
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+        </div>
     );
   }
 }
