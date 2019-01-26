@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import API from "../../utils/API";
-import { Col, Row, Container } from "../Grid/";
+import { Row, Container } from "../Grid/";
 import Card from "../Card";
 import Form from "../Form";
 import { List } from "../List";
@@ -70,12 +70,12 @@ class Dashboard extends Component {
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
-          <div className="landing-copy col s12 center-align">
+          <div className="landing-copy col s12">
             <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
+              {/* <b>Hey there,</b> {user.name.split(" ")[0]} */}
               <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
+              {user.name.split(" ")[0]}, you are logged in{" "}
+                {/* <span style={{ fontFamily: "monospace" }}>MY GARAGE</span> */}
               </p>
             </h4>
             <button
@@ -94,7 +94,7 @@ class Dashboard extends Component {
         </div>
         <Container>
         <Row>
-          <Col size="md-12">
+          <div className="s12 center-align">
             <Card title="Car Search" icon="far fa-book">
               <Form
                 handleInputChange={this.handleInputChange}
@@ -102,10 +102,10 @@ class Dashboard extends Component {
                 q={this.state.q}
               />
             </Card>
-          </Col>
+          </div>
         </Row>
         <Row>
-          <Col size="md-12">
+          <div className="s12 center-align">
             <Card title="Results">
               {this.state.books.length ? (
                 <List>
@@ -130,10 +130,10 @@ class Dashboard extends Component {
                   ))}
                 </List>
               ) : (
-                <h2 className="text-center">{this.state.message}</h2>
+                <h4 >{this.state.message}</h4>
               )}
             </Card>
-          </Col>
+          </div>
         </Row>
       </Container>
         </div>

@@ -8,7 +8,7 @@ function Form({ q, handleInputChange, handleFormSubmit }) {
           <strong>Car</strong>
         </label>
         <input
-          className="form-control"
+          className="form-control center-align"
           id="Title"
           type="text"
           value={q}
@@ -22,7 +22,7 @@ function Form({ q, handleInputChange, handleFormSubmit }) {
         <button
           onClick={handleFormSubmit}
           type="submit"
-          className="btn btn-primary blue float-right"
+          className="btn btn-large waves-effect waves-light hoverable blue accent-3"
         >
           Search
         </button>
