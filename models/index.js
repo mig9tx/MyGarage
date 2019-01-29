@@ -1,4 +1,3 @@
 module.exports = {
-    Car: require("./car")
-  };
-  
+  Book: require("./car")
+};

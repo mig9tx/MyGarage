@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const googleController = require("../../controllers/googleController");
+const vinController = require("../../controllers/vinController");
 
 // Matches with "/api/google"
 router
-  .route("/")
-  .get(googleController.findAll);
+  .route("/:title?")
+  .get(vinController.findAll);
 
 module.exports = router;

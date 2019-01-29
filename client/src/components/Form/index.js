@@ -8,11 +8,11 @@ function Form({ q, handleInputChange, handleFormSubmit }) {
           <strong>Car</strong>
         </label>
         <input
-          className="form-control center-align"
+          className="form-control"
           id="Title"
           type="text"
           value={q}
-          placeholder="Type in your VIN number"
+          placeholder="VIN #000000000"
           name="q"
           onChange={handleInputChange}
           required
@@ -22,7 +22,7 @@ function Form({ q, handleInputChange, handleFormSubmit }) {
         <button
           onClick={handleFormSubmit}
           type="submit"
-          className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+          className="btn btn-lg btn-danger float-right"
         >
           Search
         </button>

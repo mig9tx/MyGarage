@@ -2,17 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const carSchema = new Schema({
-    make: { type: String, required: true },
-    model: { type: String, required: true },
-    trim: { type: String, required: true },
-    body_type: { type: String, required: true },
-    engine: { type: String, required: true },
-    synopsis: String,
-    date: { type: Date, default: Date.now }
+  year: { type: String, required: true },
+  make: { type: String, required: true },
+  model: { type: String },
+  trim: { type: [String], required: true },
+  body_type: { type: String, required: true },
+  engine: { type: String, required: true },
+  synopsis: { type: String, required: true },
+  date: { type: String, required: true, unique: true }
 });
 
-const Car = mongoose.model("car", carSchema);
+const CarInfo = mongoose.model("CarInfo", carSchema);
 
-module.exports = Car;
-
+module.exports = CarInfo;
 
