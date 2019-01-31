@@ -10,7 +10,7 @@ import { Col, Row, Container } from "../components/Grid";
 
 class Home extends Component {
   state = {
-    cars: { year: null, make: null, model: null, trim: null, body_type: null, engine: null },
+    cars: {},
     q: "",
     message: "Search For A Car To Begin!"
   };
@@ -47,18 +47,19 @@ class Home extends Component {
   };
 
   handleCarSave = id => {
-    const car = this.state.cars.find(car => car.id === id);
+    const car = this.state.cars;
     console.log(car);
     API.saveCar({
       id: car.id,
       year: car.year,
       make: car.title,
-      model: car.subtitle,
+      model: car.model,
       trim: car.trim,
       body_type: car.body_type,
+      drivetrain: car.drivetrain,
       engine: car.engine,
-      synopsis: car.synopsis,
-      date: car.date
+      highway_miles: car.highway_miles,
+      city_miles: car.city_miles
     }).then(() => this.getCars());
   };
 
@@ -75,7 +76,7 @@ class Home extends Component {
             </Jumbotron>
           </Col>
           <Col size="md-12">
-            <Card title="Car Search" icon="far fa-book">
+            <Card title="Car Search" icon="far fa-car">
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
@@ -89,16 +90,10 @@ class Home extends Component {
             <Card title="Results">
               {this.state.cars ? (
                     <Car
-                      // year={this.state.cars.year}
-                      // make={this.state.cars.make}
-                      // model={this.state.cars.model}
-                      // trim={this.state.cars.trim}
-                      // body_type={this.state.cars.body_type}
-                      // engine={cars.engine}
                       car={this.state.cars}
                       Button={() => (
                         <button
-                          // onClick={() => this.handleCarSave(cars.id)}
+                          onClick={() => this.handleCarSave()}
                           className="btn btn-primary ml-2"
                         >
                           Save

@@ -3,7 +3,7 @@ const vinController = require("../../controllers/vinController");
 
 // Matches with "/api/google"
 router
-  .route("/:title?")
+  .route("/")
   .get(vinController.findAll);
 
 module.exports = router;

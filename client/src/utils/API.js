@@ -3,8 +3,8 @@ import axios from "axios";
 export default {
   // Gets cars from the Google API
   getCars: function (q) {
-    console.log('getcars')
-    return axios.get("/api/google/", { params: { title: q } });
+    console.log(q);
+    return axios.get("/api/google", { params: {vin: q }})
   },
   // Gets all saved books
   getSavedCars: function() {
