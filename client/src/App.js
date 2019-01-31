@@ -9,7 +9,7 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/landingNav";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Saved from "./pages/Saved";
