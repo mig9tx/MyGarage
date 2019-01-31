@@ -2,12 +2,17 @@ const path = require("path");
 const router = require("express").Router();
 const carRoutes = require("./cars");
 const googleRoutes = require("./google");
+const usersRoutes = require("./users");
 
-// Book routes
+// Cars routes
 router.use("/cars", carRoutes);
 
 // Google Routes
 router.use("/google", googleRoutes);
+
+// Users routes
+router.use("/users", usersRoutes);
+
 
 // For anything else, render the html page
 // router.use(function(req, res) {
