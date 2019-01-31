@@ -52,7 +52,7 @@ class Home extends Component {
     API.saveCar({
       id: car.id,
       year: car.year,
-      make: car.title,
+      make: car.make,
       model: car.model,
       trim: car.trim,
       body_type: car.body_type,

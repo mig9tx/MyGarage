@@ -13,10 +13,14 @@ module.exports = {
       .catch(err => res.status(404).json(err));
   },
   create: function (req, res) {
-    
+    console.log(req.body);
     db.Car.create(req.body)
-      .then(dbCar => res.json(dbCar))
-      .catch(err => res.status(404).json(err));
+      .then(dbCar => {
+        console.log(dbCar)
+        res.json(dbCar)})
+      .catch(err => {
+        console.log(err)
+        res.status(404).json(err)});
   },
   update: function(req, res) {
     db.Car.findOneAndUpdate({ id: req.params.id }, req.body)
