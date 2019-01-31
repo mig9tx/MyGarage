@@ -18,10 +18,12 @@ class Saved extends Component {
 
   getSavedCars = () => {
     API.getSavedCars()
-      .then(res =>
+      .then(res =>{
+        console.log(res.data)
         this.setState({
           cars: res.data
         })
+      }
       )
       .catch(err => console.log(err));
   };
@@ -50,15 +52,8 @@ class Saved extends Component {
                 <List>
                   {this.state.cars.map(car => (
                     <Car
-                      id={car._id}
-                      year={car.year}
-                      make={car.make}
-                      model={car.model}
-                      trim={car.trim}
-                      body_type={car.body_type}
-                      engine={car.engine}
-                      synopsis={car.synopsis}
-                      date={car.date}
+                      key={car._id}
+                      car={car}
                       Button={() => (
                         <button
                           onClick={() => this.handleCarDelete(car._id)}

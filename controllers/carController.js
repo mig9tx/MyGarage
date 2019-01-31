@@ -3,7 +3,7 @@ const db = require("../models");
 // Defining methods for the carController
 module.exports = {
   findAll: function(req, res) {
-    db.Car.find(req.query)
+    db.Car.find()
       .then(dbCar => res.json(dbCar))
       .catch(err => res.status(404).json(err));
   },
