@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 class Nav extends Component {
+  logOut (e) {
+    e.preventDefault()
+    localStorage.removeItem('usertoken')
+    this.props.history.push(`/`)
+}
+
   state = {
     open: false,
     width: window.innerWidth
