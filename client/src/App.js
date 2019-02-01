@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Maintenance from "./pages/Maintenance"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/saved" component={Saved} />
+          <Route exact path="/maintenance/:id" component={Maintenance} />
           <Route component={NoMatch} />
         </Switch>
       </div>

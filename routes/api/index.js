@@ -3,7 +3,7 @@ const router = require("express").Router();
 const carRoutes = require("./cars");
 const googleRoutes = require("./google");
 
-// Book routes
+// Car routes
 router.use("/cars", carRoutes);
 
 // Google Routes
