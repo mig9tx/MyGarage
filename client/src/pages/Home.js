@@ -7,6 +7,8 @@ import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import { Link } from "react-router-dom";
+import "./style.css";
+
 
 // import { List } from "../components/List";
 
@@ -100,7 +102,7 @@ class Home extends Component {
               Logout
             </button>
             <Jumbotron>
-              <h1 className="text-center">
+              <h1 className="text-center white-text-color padding-top-150px">
                 <strong>Hi there, {user.name.split(" ")[0]}<br/>
                         (React) Car VIN Search</strong>
               </h1>
