@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 
-class Nav extends Component {
+class landingNav extends Component {
   logOut (e) {
     e.preventDefault()
     localStorage.removeItem('usertoken')
@@ -53,31 +53,39 @@ class Nav extends Component {
         >
           <span className="navbar-toggler-icon" />
         </button>
-        {/* <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
+        <div className={`${this.state.open ? "" : "collapse "}navbar-collapse`} id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link
-                onClick={this.toggleNav}
-                className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}
-                to="/"
+                to="/register"
+                style={{
+                  width: "100px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px"
+                }}
+                className="btn btn-small btn-link"
               >
-                Search
+                Register
               </Link>
             </li>
             <li className="nav-item">
               <Link
-                onClick={this.toggleNav}
-                className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
-                to="/saved"
+                to="/login"
+                style={{
+                  width: "100px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px"
+                }}
+                className="btn btn-large btn-link"
               >
-                Saved
+                Log In
               </Link>
             </li>
           </ul>
-        </div> */}
+        </div>
       </nav>
     );
   }
 }
 
-export default Nav;
+export default landingNav;

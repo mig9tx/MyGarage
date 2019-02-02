@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // import Jumbotron from "../components/Jumbotron";
 
 
@@ -22,7 +22,7 @@ class Landing extends Component {
               <br />
                 <div className="col-md-8 mx-auto">
                   <div className="col-md-4">
-                    <Link
+                    {/* <Link
                       to="/register"
                       style={{
                         width: "140px",
@@ -32,10 +32,10 @@ class Landing extends Component {
                       className="btn btn-large btn-primary"
                     >
                       Register
-                    </Link>
+                    </Link> */}
                   </div>
                   <div className="col-md-4">
-                  <Link
+                  {/* <Link
                     to="/login"
                     style={{
                       width: "140px",
@@ -45,7 +45,7 @@ class Landing extends Component {
                     className="btn btn-large btn-light"
                   >
                     Log In
-                  </Link>
+                  </Link> */}
                 </div>
                 </div>
               </div>
