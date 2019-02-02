@@ -1,5 +1,5 @@
 const express = require("express");
-
+const cors = require("cors");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -24,6 +24,10 @@ mongoose.connect(
     useNewUrlParser: true
   }
 );
+
+const Users = require('./routes/api/users')
+
+app.use('/users', Users)
 
 // Start the API server
 app.listen(PORT, () =>
