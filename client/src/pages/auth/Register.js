@@ -54,22 +54,22 @@ class Register extends Component {
 
     return (
       <div className="container">
-        <div className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
+        <div style={{ marginTop: "4rem" }}  className="row">
+          <div className="col-md-8">
+            <Link to="/">
+              <i className="fa fa-long-arrow-left"></i> Back to
               home
             </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+            <div className="col-md-12">
               <h4>
                 <b>Register</b> below
               </h4>
-              <p className="grey-text text-darken-1">
+              <p>
                 Already have an account? <Link to="/login">Log in</Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
+              <div className="input-group col-md-12">
                 <input
                   onChange={this.onChange}
                   value={this.state.name}
@@ -80,10 +80,10 @@ class Register extends Component {
                     invalid: errors.name
                   })}
                 />
-                <label htmlFor="name">Name</label>
-                <span className="red-text">{errors.name}</span>
+                <label htmlFor="name" className="mr-3">Name</label>
+                <span className="text-danger">{errors.name}</span>
               </div>
-              <div className="input-field col s12">
+              <div className="input-group col-md-12 mt-2">
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
@@ -95,9 +95,9 @@ class Register extends Component {
                   })}
                 />
                 <label htmlFor="email">Email</label>
-                <span className="red-text">{errors.email}</span>
+                <span className="text-danger">{errors.email}</span>
               </div>
-              <div className="input-field col s12">
+              <div className="input-group col-md-12 mt-2">
                 <input
                   onChange={this.onChange}
                   value={this.state.password}
@@ -109,9 +109,9 @@ class Register extends Component {
                   })}
                 />
                 <label htmlFor="password">Password</label>
-                <span className="red-text">{errors.password}</span>
+                <span className="text-danger">{errors.password}</span>
               </div>
-              <div className="input-field col s12">
+              <div className="input-group col-md-12 mt-2">
                 <input
                   onChange={this.onChange}
                   value={this.state.password2}
@@ -123,9 +123,9 @@ class Register extends Component {
                   })}
                 />
                 <label htmlFor="password2">Confirm Password</label>
-                <span className="red-text">{errors.password2}</span>
+                <span className="text-danger">{errors.password2}</span>
               </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+              <div className="col-md-12">
                 <button
                   style={{
                     width: "150px",
@@ -134,7 +134,7 @@ class Register extends Component {
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn btn-large btn-primary"
                 >
                   Sign up
                 </button>
