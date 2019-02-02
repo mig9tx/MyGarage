@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
 class Navbar extends Component {
     logOut (e) {
@@ -32,9 +32,10 @@ class Navbar extends Component {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <a href="" onClick={this.logOut.bind(this)} className="nav-link">
-                        Logout
-                    </a>
+                <Link to="/logout" className="nav-link">
+                Logout
+                </Link>
+
                 </li>
             </ul>
         )

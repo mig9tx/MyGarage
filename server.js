@@ -2,6 +2,8 @@ const express = require("express");
 
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const passport = require("passport");
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -24,6 +26,14 @@ mongoose.connect(
     useNewUrlParser: true
   }
 );
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport config
+require("./config/passport")(passport);
+
+// Routes
+app.use("/api/users", users);
 
 // Start the API server
 app.listen(PORT, () =>

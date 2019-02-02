@@ -11,11 +11,10 @@ import { Link } from "react-router-dom";
 // import { List } from "../components/List";
 
 class Home extends Component {
-  logOut (e) {
-    e.preventDefault()
-    localStorage.removeItem('usertoken')
-    this.props.history.push(`/`)
-}
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
 
   state = {
     cars: {},
@@ -72,35 +71,8 @@ class Home extends Component {
   };
 
   render() {
-    const loginRegLink = (
-      <ul className="navbar-nav">
-          <li className="nav-item">
-              <Link to="/login" className="nav-link">
-                  Login
-              </Link>
-          </li>
-          <li className="nav-item">
-              <Link to="/register" className="nav-link">
-                  Register
-              </Link>
-          </li>
-      </ul>
-  )
-  
-    const userLink = (
-      <ul className="navbar-nav">
-          <li className="nav-item">
-              <Link to="/profile" className="nav-link">
-                  User
-              </Link>
-          </li>
-          <li className="nav-item">
-              <a href="#" onClick={this.logOut.bind(this)} className="nav-link">
-                  Logout
-              </a>
-          </li>
-      </ul>
-  )
+    const { user } = this.props.auth;
+
 
     return (
       <Container>
@@ -114,11 +86,23 @@ class Home extends Component {
                             </Link>
                         </li>
                     </ul>
-                    {localStorage.usertoken ? userLink : loginRegLink}
                 </div>
+                <button
+              style={{
+                width: "150px",
+                borderRadius: "3px",
+                letterSpacing: "1.5px",
+                marginTop: "1rem"
+              }}
+              onClick={this.onLogoutClick}
+              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+            >
+              Logout
+            </button>
             <Jumbotron>
               <h1 className="text-center">
-                <strong>(React) Car VIN Search</strong>
+                <strong>Hi there, {user.name.split(" ")[0]}<br/>
+                        (React) Car VIN Search</strong>
               </h1>
               <h2 className="text-center">Search for and Save Cars of Interest.</h2>
             </Jumbotron>
