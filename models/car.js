@@ -10,7 +10,9 @@ const carSchema = new Schema({
   body_type: { type: String, required: true },
   engine: { type: String, required: true },
   highway_miles: { type: String, required: true },
-  city_miles: { type: String, required: true, unique: true }
+  city_miles: { type: String, required: true, unique: true },
+  user: {type: String, required: true, unique: true},
+  maintenance: {type: Array, unique: true}
 });
 
 const CarInfo = mongoose.model("CarInfo", carSchema);

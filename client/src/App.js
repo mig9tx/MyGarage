@@ -17,6 +17,8 @@ import Saved from "./pages/Saved";
 import Register from "./pages/auth/Register";
 import Login from "./pages/auth/Login";
 
+import Maintenance from "./pages/Maintenance";
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -31,6 +33,7 @@ if (localStorage.jwtToken) {
   if (decoded.exp < currentTime) {
     // Logout user
     store.dispatch(logoutUser());
+
 
     // Redirect to login
     window.location.href = "./login";
@@ -52,7 +55,9 @@ class App extends Component {
           <Switch>
           <PrivateRoute exact path="/home" component={Home} />
           <Route exact path="/saved" component={Saved} />
-          </Switch>
+          <Route exact path="/maintenance/:id" component={Maintenance} />
+          {/* <Route component={NoMatch} */}
+        </Switch>
       </div>
       </Router>
       </Provider>

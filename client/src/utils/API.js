@@ -6,9 +6,13 @@ export default {
     console.log(q);
     return axios.get("/api/google", { params: {vin: q }});
   },
-  // Gets all saved books
+  // Gets all saved cars
   getSavedCars: function() {
     return axios.get("/api/cars");
+  },
+  // Gets the car with the given id
+  getCar: function(id) {
+    return axios.get("/api/cars/" + id);
   },
   // Deletes the saved book with the given id
   deleteCar: function(id) {
