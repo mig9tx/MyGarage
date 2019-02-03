@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+// const cors = require("cors");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -25,7 +25,7 @@ mongoose.connect(
   }
 );
 
-const Users = require('./routes/api/users')
+const Users = require('./routes/api')
 
 app.use('/users', Users)
 

@@ -44,6 +44,7 @@ router.post("/register", (req, res) => {
             .save()
             .then(user => res.json(user))
             .catch(err => console.log(err));
+          console.log(user);
         });
       });
     }
@@ -82,6 +83,7 @@ router.post("/login", (req, res) => {
           id: user.id,
           name: user.name
         };
+        console.log("are we here yet?");
 
         // Sign token
         jwt.sign(
