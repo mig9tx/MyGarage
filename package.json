@@ -1,6 +1,10 @@
 {
   "name": "react-mygarage-application",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.6.0",
+    "yarn": "1.12.3"
+  },
   "description": "React MyGarage Application",
   "main": "server.js",
   "scripts": {
