@@ -93,6 +93,8 @@ export default class Maintenance extends Component {
 
     handleDeleteMaintenance = () => {
         console.log('button clicked');
+        const car = this.state.cars;
+        console.log(car);
     }
 
 
