@@ -6,15 +6,16 @@ import Car from "../components/Car";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 // import { List } from "../components/List";
 
 class Home extends Component {
-  onLogoutClick = e => {
-    e.preventDefault();
-    this.props.logoutUser();
-  };
+  logOut (e) {
+    e.preventDefault()
+    localStorage.removeItem('usertoken')
+    this.props.history.push(`/`)
+}
 
   state = {
     cars: {},
@@ -71,8 +72,20 @@ class Home extends Component {
   };
 
   render() {
-    const { user } = this.props.auth;
-
+    const userLink = (
+      <ul className="navbar-nav">
+          <li className="nav-item">
+              <Link to="/profile" className="nav-link">
+                  User
+              </Link>
+          </li>
+          <li className="nav-item">
+              <a href="" onClick={this.logOut.bind(this)} className="nav-link">
+                  Logout
+              </a>
+          </li>
+      </ul>
+  )
 
     return (
       <Container>
@@ -86,19 +99,8 @@ class Home extends Component {
                             </Link>
                         </li>
                     </ul>
+                    {localStorage.usertoken ? userLink : loginRegLink}
                 </div>
-                <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Logout
-            </button>
             <Jumbotron>
               <h1 className="text-center">
                 <strong>Hi there, {user.name.split(" ")[0]}<br/>
