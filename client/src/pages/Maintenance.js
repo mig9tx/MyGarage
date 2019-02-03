@@ -18,9 +18,7 @@ export default class Maintenance extends Component {
     constructor(props){
         super(props);
     this.state = {
-        cars: {
-            maintenance: []
-        },
+        cars: {},
         description: props.expense ? props.expense.description : "",
         amount: props.expense ? (props.expense.amount / 100).toString() : "",
         createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
@@ -38,12 +36,10 @@ export default class Maintenance extends Component {
         
         API.getCar(this.props.location.state.key)
           .then(res =>{
-            console.log(res.data)
             console.log(res.data.maintenance)
             this.setState({
               cars: res.data,
-              
-            //   maintenance: res.data.maintenance
+              maintenance: res.data.maintenance
             })
           }
           )
@@ -77,11 +73,13 @@ export default class Maintenance extends Component {
             amount: this.state.amount,
             createdAt: this.state.createdAt
         };
-        console.log(this.state.cars.maintenance);
-        this.setState({maintenance: [maintenance, ...this.state.cars.maintenance]});
+
+        const cars = Object.assign({}, this.state.cars);
+        cars.maintenance = [...cars.maintenance, maintenance];
+        console.log(maintenance);
+        this.setState({cars: cars});
         event.target.elements.description.value = '';
         console.log(this.state.maintenance);
-        console.log(JSON.parse(JSON.stringify(this.state.cars)));
 
         // const option = event.target.elements.option.value.trim();
         // const error = this.props.handleAddOption(option);
@@ -92,6 +90,10 @@ export default class Maintenance extends Component {
         //     event.target.elements.option.value = "";
         // }
     };
+
+    handleDeleteMaintenance = () => {
+        console.log('button clicked');
+    }
 
 
       render() {
@@ -126,6 +128,27 @@ export default class Maintenance extends Component {
               />
               <button>Add Maintenance</button>
               </form>
+              {(this.state.cars.maintenance && this.state.cars.maintenance.length) ? (
+               <div>
+                <h2>
+                  Maintenance History
+                </h2>
+               {this.state.cars.maintenance.map((maintenance) => (
+                   <div>
+                      <p>Description: {maintenance.description}</p>
+                      <p>Date: {maintenance.createdAt.format('YYYY-MM-DD')}</p>
+                      <p>Amount: {maintenance.amount}</p>
+                      <button
+                      onClick={() => this.handleDeleteMaintenance()}
+                          className="btn btn-primary ml-2"
+                      >Delete Maintenance</button>
+                    </div>
+               ))}
+               </div>
+              ) : (
+                  <h2> Your car has no maintenace history. Add some maintenace.</h2>
+              )
+              }
 
               
               </div>

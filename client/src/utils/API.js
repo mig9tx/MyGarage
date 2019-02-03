@@ -14,11 +14,11 @@ export default {
   getCar: function(id) {
     return axios.get("/api/cars/" + id);
   },
-  // Deletes the saved book with the given id
+  // Deletes the saved car with the given id
   deleteCar: function(id) {
     return axios.delete("/api/cars/" + id);
   },
-  // Saves an book to the database
+  // Saves a car to the database
   saveCar: function(carData) {
     return axios.post("/api/cars", carData);
   }
