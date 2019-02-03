@@ -6,16 +6,23 @@ export default {
     console.log(q);
     return axios.get("/api/google", { params: {vin: q }});
   },
-  // Gets all saved books
+  // Gets all saved cars
   getSavedCars: function() {
     return axios.get("/api/cars");
   },
-  // Deletes the saved book with the given id
+  // Gets the car with the given id
+  getCar: function(id) {
+    return axios.get("/api/cars/" + id);
+  },
+  // Deletes the saved car with the given id
   deleteCar: function(id) {
     return axios.delete("/api/cars/" + id);
   },
-  // Saves an book to the database
+  // Saves a car to the database
   saveCar: function(carData) {
     return axios.post("/api/cars", carData);
+  },
+  updateCar: function(id, carData) {
+    return axios.put("/api/cars/" + id, carData);
   }
 };

@@ -1,7 +1,12 @@
 const express = require("express");
 
+// const cors = require("cors");
 const mongoose = require("mongoose");
 const routes = require("./routes");
+const passport = require("passport");
+//const users = require("./routes/api/users");
+
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -13,8 +18,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Add routes, both API and view
-app.use(routes);
+
 
 // Connect to the Mongo DB
 mongoose.connect(
@@ -24,6 +28,20 @@ mongoose.connect(
     useNewUrlParser: true
   }
 );
+// Passport middleware
+app.use(passport.initialize());
+
+// Passport config
+require("./config/passport")(passport);
+
+// Routes
+//app.use("/api/users", users);
+
+//const Users = require('./routes/api')
+
+//app.use('/users', Users)
+// Add routes, both API and view
+app.use(routes);
 
 // Start the API server
 app.listen(PORT, () =>
