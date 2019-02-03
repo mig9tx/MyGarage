@@ -54,13 +54,13 @@ class Register extends Component {
 
     return (
       <div className="container">
-        <div style={{ marginTop: "4rem" }}  className="row">
-          <div className="col-md-8">
-            <Link to="/">
-              <i className="fa fa-long-arrow-left"></i> Back to
+        <div style={{ marginTop: "4rem" }} className="row">
+          <div className="col-md-8 offset-s2">
+            <Link to="/" className="btn-flat waves-effect">
+              <i className="fa-long-arrow-left"></i> Back to
               home
             </Link>
-            <div className="col-md-12">
+            <div className="col-md-12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Register</b> below
               </h4>
@@ -69,7 +69,7 @@ class Register extends Component {
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-group col-md-12">
+              <div className="input-field col-md-12">
                 <input
                   onChange={this.onChange}
                   value={this.state.name}
@@ -80,10 +80,10 @@ class Register extends Component {
                     invalid: errors.name
                   })}
                 />
-                <label htmlFor="name" className="mr-3">Name</label>
+                <label htmlFor="name">Name</label>
                 <span className="text-danger">{errors.name}</span>
               </div>
-              <div className="input-group col-md-12 mt-2">
+              <div className="input-field col-md-12">
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
@@ -97,7 +97,7 @@ class Register extends Component {
                 <label htmlFor="email">Email</label>
                 <span className="text-danger">{errors.email}</span>
               </div>
-              <div className="input-group col-md-12 mt-2">
+              <div className="input-field col-md-12">
                 <input
                   onChange={this.onChange}
                   value={this.state.password}
@@ -111,7 +111,7 @@ class Register extends Component {
                 <label htmlFor="password">Password</label>
                 <span className="text-danger">{errors.password}</span>
               </div>
-              <div className="input-group col-md-12 mt-2">
+              <div className="input-field col-md-12">
                 <input
                   onChange={this.onChange}
                   value={this.state.password2}
@@ -125,7 +125,7 @@ class Register extends Component {
                 <label htmlFor="password2">Confirm Password</label>
                 <span className="text-danger">{errors.password2}</span>
               </div>
-              <div className="col-md-12">
+              <div className="col-md-12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{
                     width: "150px",
@@ -150,7 +150,7 @@ class Register extends Component {
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  // errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

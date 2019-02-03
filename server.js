@@ -1,5 +1,5 @@
 const express = require("express");
-
+const cors = require("cors");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const passport = require("passport");
@@ -34,6 +34,10 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);
+
+const Users = require('./routes/api/users')
+
+app.use('/users', Users)
 
 // Start the API server
 app.listen(PORT, () =>

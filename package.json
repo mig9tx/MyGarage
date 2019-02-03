@@ -1,7 +1,7 @@
 {
   "name": "react-my-garage-application",
   "version": "1.0.0",
-  "description": "Mern application",
+  "description": "React MyGarage Application",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",

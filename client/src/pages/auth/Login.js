@@ -55,12 +55,12 @@ class Login extends Component {
     return (
       <div className="container">
         <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col-md-8">
-            <Link to="/">
-              <i className="fa fa-long-arrow-left"></i> Back to
+          <div className="col-md-8 offset-s2">
+            <Link to="/" className="btn-flat waves-effect">
+              <i className="fa-long-arrow-left"></i> Back to
               home
             </Link>
-            <div className="col-md-12">
+            <div className="col-md-12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Login</b> below
               </h4>
@@ -69,7 +69,7 @@ class Login extends Component {
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-group col-md-12">
+              <div className="input-field col-md-12">
                 <input
                   onChange={this.onChange}
                   value={this.state.email}
@@ -81,12 +81,12 @@ class Login extends Component {
                   })}
                 />
                 <label htmlFor="email">Email</label>
-                <span className="red-text">
+                <span className="text-danger">
                   {errors.email}
                   {errors.emailnotfound}
                 </span>
               </div>
-              <div className="input-group col-md-12 mt-2">
+              <div className="input-field col-md-12">
                 <input
                   onChange={this.onChange}
                   value={this.state.password}
@@ -98,12 +98,12 @@ class Login extends Component {
                   })}
                 />
                 <label htmlFor="password">Password</label>
-                <span className="red-text">
+                <span className="text-danger">
                   {errors.password}
                   {errors.passwordincorrect}
                 </span>
               </div>
-              <div className="col-md-12">
+              <div className="col-md-12" style={{ paddingLeft: "11.250px" }}>
                 <button
                   style={{
                     width: "150px",
