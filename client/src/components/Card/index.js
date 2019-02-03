@@ -2,13 +2,13 @@ import React from "react";
 
 function Card({ icon, title, children }) {
   return (
-    <div className="card mt-4">
-      <div className="card-header">
-        <h3>
+    <div className="lbl-service-card">
+      <div className="yd-reviews review-card intro">
+        <h2>
           <strong>
             <i className={`fa fa-${icon}`} aria-hidden="true" /> {title}
           </strong>
-        </h3>
+        </h2>
       </div>
       <div className="card-body">{children}</div>
     </div>

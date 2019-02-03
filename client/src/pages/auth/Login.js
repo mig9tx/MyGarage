@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 import { Container, Form, Button, Label, Input, Col, Row } from "reactstrap";
+import Jumbotron from "../../components/Jumbotron";
 
 
 class Login extends Component {
@@ -55,6 +56,7 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
+      <Jumbotron>
       <Container>
         <Row style={{ marginTop: "4rem" }}>
           <Col md="8">
@@ -122,7 +124,8 @@ class Login extends Component {
             </Form>
           </Col>
         </Row>
-      </Container>
+        </Container>
+        </Jumbotron>
     );
   }
 }

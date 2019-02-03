@@ -10,6 +10,7 @@ import Car from "../components/Car";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
+import { Button } from "reactstrap";
 
 
 // import { List } from "../components/List";
@@ -108,12 +109,12 @@ class Home extends Component {
                     <Car
                       car={this.state.cars}
                       Button={() => (
-                        <button
+                        <Button
                           onClick={() => this.handleCarSave()}
-                          className="btn btn-primary ml-2"
+                          className="btn ml-2"
                         >
                           Save
-                        </button>
+                        </Button>
                       )}
                     />
                   
