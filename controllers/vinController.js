@@ -20,20 +20,7 @@ module.exports = {
     axios
       .get("https://marketcheck-prod.apigee.net/v1/vin/" + vin + "/specs?api_key=p6ECtEomofJa2GGQ9Jlx1nD18dsJk03l")
       .then(results => {
-        // console.log(results);
         console.log("Are we here yetT !?");
-        // const filtered =
-        //   results.data.items.filter(
-        //     result =>
-        //       result.year &&
-        //       result.make &&
-        //       result.model &&
-        //       result.trim &&
-        //       result.body_type &&
-        //       result.engine &&
-        //       result.synopsis &&
-        //       result.date
-        //   )
         res.json(results.data);
       }
     );

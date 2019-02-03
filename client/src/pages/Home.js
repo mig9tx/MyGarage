@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/authActions";
@@ -10,6 +10,7 @@ import Car from "../components/Car";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
+
 
 // import { List } from "../components/List";
 
@@ -77,18 +78,20 @@ class Home extends Component {
     const { user } = this.props.auth;
 
     return (
+      <Fragment>
       <Container>
         <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1 className="text-center">
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-                <strong>(React) Car VIN Search</strong>
-              </h1>
+              <b>Hey there,</b> {user.name.split(" ")[0]}<br />
+                </h1><br />
+                <h2 className="text-center">(React) Car VIN Search</h2>
+
               <h2 className="text-center">Search for and Save Cars of Interest.</h2>
             </Jumbotron>
           </Col>
-          <Col size="md-12">
+          <Col size="md-12" className="intro-block">
             <Card title="Car Search" icon="far fa-car">
               <Form
                 handleInputChange={this.handleInputChange}
@@ -122,7 +125,8 @@ class Home extends Component {
           </Col>
         </Row>
         <Footer />
-      </Container>
+        </Container>
+        </Fragment>
     );
   }
 }
