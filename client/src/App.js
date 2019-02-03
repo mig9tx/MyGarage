@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import jwt_decode from "jwt-decode";
-// import setAuthToken from "./utils/setAuthToken";
+import jwt_decode from "jwt-decode";
+import setAuthToken from "./utils/setAuthToken";
 // import { Nav } from "reactstrap";
 
 
@@ -15,9 +15,13 @@ import Nav from "./components/Nav/landingNav";
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import Saved from "./pages/Saved";
-// import NoMatch from "./pages/NoMatch";
-import Register from "./pages/auth/Register";
+import NoMatch from "./pages/NoMatch";
+// import Nav from "./components/Nav";
+import Maintenance from "./pages/Maintenance";
 import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+
+
 
 // Check for token to keep user logged in
 // if (localStorage.jwtToken) {
@@ -54,7 +58,9 @@ class App extends Component {
           <Switch>
           <PrivateRoute exact path="/home" component={Home} />
           <Route exact path="/saved" component={Saved} />
-          </Switch>
+          <Route exact path="/maintenance/:id" component={Maintenance} />
+          <Route component={NoMatch} />
+        </Switch>
       </div>
       </Router>
       </Provider>

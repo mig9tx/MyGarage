@@ -28,6 +28,16 @@ class Saved extends Component {
       .catch(err => console.log(err));
   };
 
+ handleCarMaintenance = id => {
+  console.log(id);
+  this.props.history.push({
+    pathname:`/maintenance/${id}`,
+    state:{
+        key: id
+     }
+   });
+ }
+
   handleCarDelete = id => {
     API.deleteCar(id).then(res => this.getSavedCars());
   };
@@ -55,12 +65,21 @@ class Saved extends Component {
                       key={car._id}
                       car={car}
                       Button={() => (
+                        <div>
                         <button
                           onClick={() => this.handleCarDelete(car._id)}
                           className="btn btn-danger ml-2"
                         >
                           Delete
                         </button>
+                        <button
+                        onClick={() => this.handleCarMaintenance(car._id)}
+                        
+                        className="btn btn-warning ml-2"
+                        >
+                        View Maintenance
+                        </button>
+                        </div>
                       )}
                     />
                   ))}

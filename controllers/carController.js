@@ -23,8 +23,11 @@ module.exports = {
         res.status(404).json(err)});
   },
   update: function(req, res) {
-    db.Car.findOneAndUpdate({ id: req.params.id }, req.body)
-      .then(dbCar => res.json(dbCar))
+    console.log('car controller line 26:' , req.body);
+    db.Car.findByIdAndUpdate(req.params.id, req.body)
+      .then(dbCar => {
+        console.log(dbCar);
+        res.json(dbCar)})
       .catch(err => res.status(404).json(err));
   },
   remove: function(req, res) {

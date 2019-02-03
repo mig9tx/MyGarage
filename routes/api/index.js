@@ -4,7 +4,7 @@ const carRoutes = require("./cars");
 const googleRoutes = require("./google");
 const usersRoutes = require("./users");
 
-// Cars routes
+// Car routes
 router.use("/cars", carRoutes);
 
 // Google Routes
