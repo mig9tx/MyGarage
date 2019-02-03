@@ -33,9 +33,6 @@ if (localStorage.jwtToken) {
   if (decoded.exp < currentTime) {
     // Logout user
     store.dispatch(logoutUser());
-import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav";
-import Maintenance from "./pages/Maintenance";
 
 
     // Redirect to login

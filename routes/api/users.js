@@ -81,6 +81,7 @@ router.post("/login", (req, res) => {
           id: user.id,
           name: user.name
         };
+        console.log(payLoad);
 
         // Sign token
         jwt.sign(
