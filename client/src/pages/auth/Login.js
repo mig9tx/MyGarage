@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import { Container, Form, Button, Label, Input, Col, Row } from "reactstrap";
+
 
 class Login extends Component {
   constructor() {
@@ -53,24 +55,24 @@ class Login extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
-        <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col-md-8 offset-s2">
+      <Container>
+        <Row style={{ marginTop: "4rem" }}>
+          <Col md="8">
             <Link to="/" className="btn-flat waves-effect">
               <i className="fa-long-arrow-left"></i> Back to
               home
             </Link>
-            <div className="col-md-12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
+            <Row md="12" style={{ paddingLeft: "11.250px" }}>
+              <h4 className="mt-3">
                 <b>Login</b> below
               </h4>
-              <p className="grey-text text-darken-1">
+              <p className="mt-3">
                 Don't have an account? <Link to="/register">Register</Link>
               </p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col-md-12">
-                <input
+            </Row>
+            <Form noValidate onSubmit={this.onSubmit}>
+              <Col md="12" className="input-field mt-3">
+                <Input
                   onChange={this.onChange}
                   value={this.state.email}
                   error={errors.email}
@@ -80,14 +82,14 @@ class Login extends Component {
                     invalid: errors.email || errors.emailnotfound
                   })}
                 />
-                <label htmlFor="email">Email</label>
+                <Label htmlFor="email" className="mt-3">Email</Label>
                 <span className="text-danger">
                   {errors.email}
                   {errors.emailnotfound}
                 </span>
-              </div>
-              <div className="input-field col-md-12">
-                <input
+              </Col>
+              <Col md="12" className="input-field mt-3">
+                <Input
                   onChange={this.onChange}
                   value={this.state.password}
                   error={errors.password}
@@ -97,14 +99,14 @@ class Login extends Component {
                     invalid: errors.password || errors.passwordincorrect
                   })}
                 />
-                <label htmlFor="password">Password</label>
+                <Label htmlFor="password" className="mt-3">Password</Label>
                 <span className="text-danger">
                   {errors.password}
                   {errors.passwordincorrect}
                 </span>
-              </div>
-              <div className="col-md-12" style={{ paddingLeft: "11.250px" }}>
-                <button
+              </Col>
+              <Col md="12" style={{ paddingLeft: "11.250px" }}>
+                <Button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
@@ -112,15 +114,15 @@ class Login extends Component {
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large btn-primary"
+                  className="btn"
                 >
                   Login
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+                </Button>
+              </Col>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

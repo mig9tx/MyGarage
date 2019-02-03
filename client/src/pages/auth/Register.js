@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import { Container, Button, Form, Label, Input, Col, Row } from "reactstrap";
+
 
 class Register extends Component {
   constructor() {
@@ -53,24 +55,24 @@ class Register extends Component {
     const { errors } = this.state;
 
     return (
-      <div className="container">
-        <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col-md-8 offset-s2">
+      <Container>
+        <Row style={{ marginTop: "4rem" }}>
+          <Col md="8">
             <Link to="/" className="btn-flat waves-effect">
               <i className="fa-long-arrow-left"></i> Back to
               home
             </Link>
-            <div className="col-md-12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
+            <Col md="12" style={{ paddingLeft: "11.250px" }}>
+              <h4 className="mt-3">
                 <b>Register</b> below
               </h4>
-              <p className="grey-text text-darken-1">
+              <p className="mt-3">
                 Already have an account? <Link to="/login">Log in</Link>
               </p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col-md-12">
-                <input
+            </Col>
+            <Form noValidate onSubmit={this.onSubmit}>
+              <Col md="12" className="input-field">
+                <Input
                   onChange={this.onChange}
                   value={this.state.name}
                   error={errors.name}
@@ -80,11 +82,11 @@ class Register extends Component {
                     invalid: errors.name
                   })}
                 />
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name" className="mt-3">Name</label>
                 <span className="text-danger">{errors.name}</span>
-              </div>
-              <div className="input-field col-md-12">
-                <input
+              </Col>
+              <Col md="12" className="input-field">
+                <Input
                   onChange={this.onChange}
                   value={this.state.email}
                   error={errors.email}
@@ -94,11 +96,11 @@ class Register extends Component {
                     invalid: errors.email
                   })}
                 />
-                <label htmlFor="email">Email</label>
+                <Label htmlFor="email" className="mt-3">Email</Label>
                 <span className="text-danger">{errors.email}</span>
-              </div>
-              <div className="input-field col-md-12">
-                <input
+              </Col>
+              <Col md="12" className="input-field">
+                <Input
                   onChange={this.onChange}
                   value={this.state.password}
                   error={errors.password}
@@ -108,11 +110,11 @@ class Register extends Component {
                     invalid: errors.password
                   })}
                 />
-                <label htmlFor="password">Password</label>
+                <Label htmlFor="password" className="mt-3">Password</Label>
                 <span className="text-danger">{errors.password}</span>
-              </div>
-              <div className="input-field col-md-12">
-                <input
+              </Col>
+              <Col md="12" className="input-field">
+                <Input
                   onChange={this.onChange}
                   value={this.state.password2}
                   error={errors.password2}
@@ -122,11 +124,11 @@ class Register extends Component {
                     invalid: errors.password2
                   })}
                 />
-                <label htmlFor="password2">Confirm Password</label>
+                <Label htmlFor="password2" className="mt-3">Confirm Password</Label>
                 <span className="text-danger">{errors.password2}</span>
-              </div>
-              <div className="col-md-12" style={{ paddingLeft: "11.250px" }}>
-                <button
+              </Col>
+              <Col md="12" style={{ paddingLeft: "11.250px" }}>
+                <Button
                   style={{
                     width: "150px",
                     borderRadius: "3px",
@@ -134,15 +136,15 @@ class Register extends Component {
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large btn-primary"
+                  className="btn mt-3"
                 >
                   Sign up
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+                </Button>
+              </Col>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

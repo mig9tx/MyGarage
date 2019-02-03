@@ -38,18 +38,7 @@ module.exports = {
       }
     );
     
-      // .then(apiCars =>
-      //   db.Car.find().then(dbCars => {
-      //     console.log("How soon is Now?");
-
-      //     apiCars.filter(apiCar =>
-      //       dbCars.every(dbCar => dbCar.googleId.toString() !== apiCar.id)
-      //     )
-      //   }
-      //   )
-      // )
-      // .then(Cars => res.json(Cars))
-      // .catch(err => res.status(422).json(err));
+      
   }
 };
 

@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions";
+
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import Form from "../components/Form";
@@ -6,9 +10,15 @@ import Car from "../components/Car";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
+
 // import { List } from "../components/List";
 
 class Home extends Component {
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
+
   state = {
     cars: {},
     q: "",
@@ -64,12 +74,15 @@ class Home extends Component {
   };
 
   render() {
+    const { user } = this.props.auth;
+
     return (
       <Container>
         <Row>
           <Col size="md-12">
             <Jumbotron>
               <h1 className="text-center">
+              <b>Hey there,</b> {user.name.split(" ")[0]}
                 <strong>(React) Car VIN Search</strong>
               </h1>
               <h2 className="text-center">Search for and Save Cars of Interest.</h2>
@@ -114,4 +127,17 @@ class Home extends Component {
   }
 }
 
-export default Home;
+Home.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Home);
+

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import jwt_decode from "jwt-decode";
 // import setAuthToken from "./utils/setAuthToken";
+// import { Nav } from "reactstrap";
+
 
 // Private Route
 import PrivateRoute from "./components/private-route/PrivateRoute";
@@ -42,7 +44,7 @@ class App extends Component {
   return (
     <Provider store={store}>
     <Router>
-      <div>
+      <div className="App">
         <Nav />
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
