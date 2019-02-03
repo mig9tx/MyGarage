@@ -21,5 +21,8 @@ export default {
   // Saves a car to the database
   saveCar: function(carData) {
     return axios.post("/api/cars", carData);
+  },
+  updateCar: function(id, carData) {
+    return axios.put("/api/cars/" + id, carData);
   }
 };

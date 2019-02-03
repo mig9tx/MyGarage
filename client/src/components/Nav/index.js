@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
-import moment from 'moment';
+
 
 class Nav extends Component {
   state = {

@@ -72,13 +72,21 @@ export default class Maintenance extends Component {
             description: this.state.description,
             amount: this.state.amount,
             createdAt: this.state.createdAt
-        };
-
+        };  
+        
         const cars = Object.assign({}, this.state.cars);
         cars.maintenance = [...cars.maintenance, maintenance];
         console.log(maintenance);
-        this.setState({cars: cars});
+        this.setState({cars: cars}, this.handleUpdateMaintenance);
         event.target.elements.description.value = '';
+    }
+
+    handleUpdateMaintenance = () => {
+        const id = this.state.cars._id;
+        console.log(id);
+        let carData = this.state.cars;
+        API.updateCar(id, carData).then(() => this.getCar()); 
+        
         console.log(this.state.maintenance);
 
         // const option = event.target.elements.option.value.trim();
@@ -94,7 +102,9 @@ export default class Maintenance extends Component {
     handleDeleteMaintenance = () => {
         console.log('button clicked');
         const car = this.state.cars;
-        console.log(car);
+        console.log(car._id);
+        console.log(car.maintenance);
+        
     }
 
 
@@ -135,10 +145,10 @@ export default class Maintenance extends Component {
                 <h2>
                   Maintenance History
                 </h2>
-               {this.state.cars.maintenance.map((maintenance) => (
-                   <div>
+               {this.state.cars.maintenance.map((maintenance, i) => (
+                   <div key={i}>
                       <p>Description: {maintenance.description}</p>
-                      <p>Date: {maintenance.createdAt.format('YYYY-MM-DD')}</p>
+                      <p>Date: {moment(maintenance.createdAt).format('YYYY-MM-DD')}</p>
                       <p>Amount: {maintenance.amount}</p>
                       <button
                       onClick={() => this.handleDeleteMaintenance()}

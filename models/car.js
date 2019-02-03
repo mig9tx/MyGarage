@@ -11,7 +11,7 @@ const carSchema = new Schema({
   engine: { type: String, required: true },
   highway_miles: { type: String, required: true },
   city_miles: { type: String, required: true, unique: true },
-  user: {type: String, required: true, unique: true},
+  // user: {type: String, required: true, unique: true},
   maintenance: {type: Array, unique: true}
 });
 
