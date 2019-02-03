@@ -1,13 +1,8 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 class Nav extends Component {
-  logOut (e) {
-    e.preventDefault()
-    localStorage.removeItem('usertoken')
-    this.props.history.push(`/`)
-}
   state = {
     open: false,
     width: window.innerWidth
@@ -36,20 +31,6 @@ class Nav extends Component {
   }
 
   render() {
-    const userLink = (
-      <ul className="navbar-nav">
-          <li className="nav-item">
-              <Link to="/profile" className="nav-link">
-                  User
-              </Link>
-          </li>
-          <li className="nav-item">
-              <a href="" onClick={this.logOut.bind(this)} className="nav-link">
-                  Logout
-              </a>
-          </li>
-      </ul>
-  )
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-2">
         <Link className="navbar-brand" to="/">
@@ -87,11 +68,10 @@ class Nav extends Component {
               </Link>
             </li>
           </ul>
-          
         </div>
       </nav>
     );
   }
 }
 
-export default withRouter(Nav)
+export default Nav;

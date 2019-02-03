@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/authActions";
+
 import Jumbotron from "../components/Jumbotron";
 import Card from "../components/Card";
 import Form from "../components/Form";
@@ -6,16 +10,14 @@ import Car from "../components/Car";
 import Footer from "../components/Footer";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
-// import { Link } from "react-router-dom";
 
 // import { List } from "../components/List";
 
 class Home extends Component {
-  logOut (e) {
-    e.preventDefault()
-    localStorage.removeItem('usertoken')
-    this.props.history.push(`/`)
-}
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
+  };
 
   state = {
     cars: {},
@@ -72,39 +74,16 @@ class Home extends Component {
   };
 
   render() {
-    const userLink = (
-      <ul className="navbar-nav">
-          <li className="nav-item">
-              <Link to="/profile" className="nav-link">
-                  User
-              </Link>
-          </li>
-          <li className="nav-item">
-              <a href="" onClick={this.logOut.bind(this)} className="nav-link">
-                  Logout
-              </a>
-          </li>
-      </ul>
-  )
+    const { user } = this.props.auth;
 
     return (
       <Container>
         <Row>
           <Col size="md-12">
-          <div className="collapse navbar-collapse justify-content-md-center" id="navbar1">
-                    <ul className="navbar-nav">
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link">
-                                Home
-                            </Link>
-                        </li>
-                    </ul>
-                    {localStorage.usertoken ? userLink : loginRegLink}
-                </div>
             <Jumbotron>
               <h1 className="text-center">
-                <strong>Hi there, {user.name.split(" ")[0]}<br/>
-                        (React) Car VIN Search</strong>
+              <b>Hey there,</b> {user.name.split(" ")[0]}
+                <strong>(React) Car VIN Search</strong>
               </h1>
               <h2 className="text-center">Search for and Save Cars of Interest.</h2>
             </Jumbotron>
@@ -148,4 +127,17 @@ class Home extends Component {
   }
 }
 
-export default Home;
+Home.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Home);
+
