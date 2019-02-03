@@ -16,7 +16,6 @@ export default class SectionHeroHome extends React.Component {
                                 <h1>Manage all your data at just one place.</h1>
                                 <p>Best in class big data software and analytics services will render your huge chunks into
                                 meaningful data. Login to the app now.</p>
-                                <Media href="#" className="btn btn-action btn-edge" ></Media>
                             </div>
                                 <div className="hero-img">
                             <div className="signup-form">
@@ -31,9 +30,13 @@ export default class SectionHeroHome extends React.Component {
                                         <Input type="text" name="form-email" placeholder="Email Address..." className="form-email form-control" id="form-email" />
                                 </FormGroup>
                                 <FormGroup>
+                                    <Label className="sr-only" for="form-phone">Password</Label>
+                                        <Input type="text" name="form-phone" placeholder="Password..." className="form-phone form-control" id="form-phone" />
+                                </FormGroup>
+                                <FormGroup>
                                     <Label className="sr-only" for="form-phone">Phone</Label>
-                                        <Input type="text" name="form-phone" placeholder="Phone No..." className="form-phone form-control" id="form-phone" />
-                                <Button type="submit" className="btn" size="lg">Sign me up</Button>
+                                        <Input type="text" name="form-phone" placeholder="Password..." className="form-phone form-control" id="form-phone" />
+                                <Button type="submit" className="btn mt-4" size="lg">Sign me up</Button>
                                 </FormGroup>
                             </Form>
                         </div>
